@@ -98,6 +98,10 @@
     .hero > *:nth-child(4) { animation-delay: .24s } .hero > *:nth-child(5) { animation-delay: .32s }
     @keyframes rise { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
   }
+  .workset h3 { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem; margin: 1.1rem 0 .45rem; }
+  .workstrip { display: flex; gap: .5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: .4rem; }
+  .workstrip img { height: 200px; width: auto; flex: 0 0 auto; border-radius: 8px; scroll-snap-align: start; }
+  @media (min-width: 700px) { .workstrip img { height: 260px; } }
 </style>
 </head>
 <body>
@@ -187,6 +191,29 @@
       <li><b>Reports, not pitches.</b> You get photographs and findings in writing. What's broken, what's code, what can wait — separated honestly.</li>
       <li><b>Built to the manufacturer's book.</b> Most roof failures we inspect trace to skipped steps at walls, chimneys, and vents. We don't skip them.</li>
     </ul>
+  </section>
+
+
+  <section id="work">
+    <h2>Recent <span>work</span></h2>
+      <div class="workset">
+        <h3>Wisconsin Fascia Wrap Repair</h3>
+        <div class="workstrip">
+        <img src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <img src="work/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <img src="work/6f18a542-d785-491c-a27b-6e42f958940d.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <img src="work/97a1508c-75a1-47bb-bfe3-232c0399e53a.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <img src="work/38747940-94eb-4810-aaa7-a7cda0aff774.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <img src="work/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        </div>
+      </div>
+      <div class="workset">
+        <h3>Gutter Cleaning and Additional Downspout Installation</h3>
+        <div class="workstrip">
+        <img src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy">
+        <img src="work/014460fa-bbc5-4451-b9bf-f9c920765f93.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy">
+        </div>
+      </div>
   </section>
 
   <section id="areas">
