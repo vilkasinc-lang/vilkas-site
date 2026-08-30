@@ -98,10 +98,18 @@
     .hero > *:nth-child(4) { animation-delay: .24s } .hero > *:nth-child(5) { animation-delay: .32s }
     @keyframes rise { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
   }
-  .workset h3 { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem; margin: 1.1rem 0 .45rem; }
-  .workstrip { display: flex; gap: .5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: .4rem; }
-  .workstrip img { height: 200px; width: auto; flex: 0 0 auto; border-radius: 8px; scroll-snap-align: start; }
-  @media (min-width: 700px) { .workstrip img { height: 260px; } }
+  .workset h3 { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem; margin: 1.3rem 0 .5rem; }
+  .workview { display: flex; align-items: center; gap: .4rem; }
+  .workfeature { flex: 1; min-width: 0; width: 100%; max-height: 62vh; object-fit: contain; border-radius: 10px; background: #0a0a0a; }
+  .worknav { flex: 0 0 auto; background: none; border: 1px solid #333; color: #e33; font-size: 1.6rem; line-height: 1; padding: .55rem .7rem; border-radius: 8px; cursor: pointer; }
+  .worknav:hover { border-color: #e33; }
+  .workthumbs { display: flex; gap: .45rem; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: .5rem 0 .3rem; scrollbar-width: thin; scrollbar-color: #e33 #1a1a1a; }
+  .workthumbs::-webkit-scrollbar { height: 6px; }
+  .workthumbs::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 3px; }
+  .workthumbs::-webkit-scrollbar-thumb { background: #e33; border-radius: 3px; }
+  .workthumbs img { height: 64px; width: 88px; object-fit: cover; flex: 0 0 auto; border-radius: 6px; cursor: pointer; opacity: .55; border: 2px solid transparent; }
+  .workthumbs img.on { opacity: 1; border-color: #e33; }
+  @media (max-width: 560px) { .worknav { display: none; } .workfeature { max-height: 48vh; } }
 </style>
 </head>
 <body>
@@ -196,22 +204,32 @@
 
   <section id="work">
     <h2>Recent <span>work</span></h2>
-      <div class="workset">
+            <div class="workset" data-count="6">
         <h3>Wisconsin Fascia Wrap Repair</h3>
-        <div class="workstrip">
-        <img src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
-        <img src="work/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
-        <img src="work/6f18a542-d785-491c-a27b-6e42f958940d.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
-        <img src="work/97a1508c-75a1-47bb-bfe3-232c0399e53a.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
-        <img src="work/38747940-94eb-4810-aaa7-a7cda0aff774.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
-        <img src="work/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy">
+        <div class="workview">
+          <button class="worknav" type="button" aria-label="Previous photo" onclick="vkStep(this,-1)">&#8249;</button>
+          <img class="workfeature" src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair">
+          <button class="worknav" type="button" aria-label="Next photo" onclick="vkStep(this,1)">&#8250;</button>
+        </div>
+        <div class="workthumbs">
+          <img src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="on" onclick="vkShow(this,0)">
+          <img src="work/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,1)">
+          <img src="work/6f18a542-d785-491c-a27b-6e42f958940d.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,2)">
+          <img src="work/97a1508c-75a1-47bb-bfe3-232c0399e53a.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,3)">
+          <img src="work/38747940-94eb-4810-aaa7-a7cda0aff774.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,4)">
+          <img src="work/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,5)">
         </div>
       </div>
-      <div class="workset">
+            <div class="workset" data-count="2">
         <h3>Gutter Cleaning and Additional Downspout Installation</h3>
-        <div class="workstrip">
-        <img src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy">
-        <img src="work/014460fa-bbc5-4451-b9bf-f9c920765f93.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy">
+        <div class="workview">
+          <button class="worknav" type="button" aria-label="Previous photo" onclick="vkStep(this,-1)">&#8249;</button>
+          <img class="workfeature" src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation">
+          <button class="worknav" type="button" aria-label="Next photo" onclick="vkStep(this,1)">&#8250;</button>
+        </div>
+        <div class="workthumbs">
+          <img src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy" class="on" onclick="vkShow(this,0)">
+          <img src="work/014460fa-bbc5-4451-b9bf-f9c920765f93.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy" class="" onclick="vkShow(this,1)">
         </div>
       </div>
   </section>
@@ -235,5 +253,22 @@
   </div>
 </footer>
 
+<script>
+function vkSet(set, i) {
+  var thumbs = set.querySelectorAll('.workthumbs img');
+  var n = thumbs.length;
+  i = ((i % n) + n) % n;
+  var f = set.querySelector('.workfeature');
+  f.src = thumbs[i].src;
+  f.alt = thumbs[i].alt;
+  thumbs.forEach(function (t, k) { t.classList.toggle('on', k === i); });
+  set.dataset.index = i;
+}
+function vkShow(el, i) { vkSet(el.closest('.workset'), i); }
+function vkStep(el, d) {
+  var set = el.closest('.workset');
+  vkSet(set, (parseInt(set.dataset.index || '0', 10)) + d);
+}
+</script>
 </body>
 </html>
