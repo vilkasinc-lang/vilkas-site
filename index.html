@@ -52,34 +52,34 @@
   h1, h2 { font-family: "Playfair Display", "Bodoni MT", Georgia, serif; font-weight: 600; text-wrap: balance; }
 
   /* hero */
-  .hero { min-height: 62svh; display: flex; flex-direction: column; align-items: center;
-          justify-content: center; text-align: center; padding: 2.2rem 1.4rem 1.8rem; position: relative; }
-  .hero svg { width: min(30vw, 8.5rem); height: auto; margin-bottom: 1rem; }
-  .hero h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); letter-spacing: .06em; }
-  .tag { color: var(--red); letter-spacing: clamp(.12em, 1.2vw, .3em); text-transform: uppercase;
-         font-size: .82rem; font-weight: 600; margin: .8rem 0 .4rem; }
-  .sub { color: var(--dim); max-width: 34rem; margin: 0 auto; }
-  .cta { display: flex; gap: .8rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
-  .btn { display: inline-block; padding: .95rem 2rem; border-radius: 6px; text-decoration: none;
-         font-weight: 600; letter-spacing: .06em; min-width: 11rem; }
+  .hero { min-height: 50svh; display: flex; flex-direction: column; align-items: center;
+          justify-content: center; text-align: center; padding: 1.5rem 1.2rem 1.3rem; position: relative; }
+  .hero svg { width: min(23vw, 6.4rem); height: auto; margin-bottom: .6rem; }
+  .hero h1 { font-size: clamp(1.8rem, 5.2vw, 2.8rem); letter-spacing: .06em; }
+  .tag { color: var(--red); letter-spacing: clamp(.1em, 1vw, .22em); text-transform: uppercase;
+         font-size: .76rem; font-weight: 600; margin: .45rem 0 .3rem; }
+  .sub { color: var(--dim); max-width: 34rem; margin: 0 auto; font-size: .98rem; }
+  .cta { display: flex; gap: .55rem; margin-top: 1.1rem; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-block; padding: .8rem 1.05rem; border-radius: 6px; text-decoration: none;
+         font-weight: 600; letter-spacing: .04em; min-width: 0; font-size: .96rem; }
   .btn-red { background: var(--red); color: #fff; }
   .btn-line { border: 1.5px solid var(--line); color: var(--ink); }
   .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
-  .cred-strip { margin-top: 1.3rem; text-align: center;
-                color: var(--dim); font-size: .72rem; letter-spacing: clamp(.06em, .8vw, .14em);
+  .cred-strip { margin-top: .85rem; text-align: center;
+                color: var(--dim); font-size: .7rem; letter-spacing: clamp(.05em, .7vw, .12em);
                 text-transform: uppercase; }
 
-  section { padding: 4rem 0; border-top: 1px solid var(--line); }
-  h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin-bottom: 2rem; }
+  section { padding: 2.4rem 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(1.35rem, 3.6vw, 1.9rem); margin-bottom: 1rem; }
   h2 span { color: var(--red); }
 
-  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 1.6rem; }
-  .card h3 { font-size: 1.05rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .6rem; }
-  .card h3::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--red); margin-bottom: .9rem; }
-  .card p { color: var(--dim); font-size: .98rem; }
+  .grid { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 1.05rem 1.15rem; }
+  .card h3 { font-size: .97rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4rem; }
+  .card h3::before { content: ""; display: block; width: 1.7rem; height: 2px; background: var(--red); margin-bottom: .55rem; }
+  .card p { color: var(--dim); font-size: .94rem; }
 
-  .why li { list-style: none; padding-left: 1.6rem; position: relative; margin-bottom: .9rem; color: var(--dim); }
+  .why li { list-style: none; padding-left: 1.4rem; position: relative; margin-bottom: .5rem; color: var(--dim); }
   .why li::before { content: "—"; color: var(--red); position: absolute; left: 0; }
   .why b { color: var(--ink); font-weight: 600; }
 
@@ -160,11 +160,10 @@
   </svg>
   <h1>Vilkas Inc</h1>
   <div class="tag">Roofing &middot; Exteriors &middot; Inspections</div>
-  <p class="sub">Illinois licensed roofing contractor — repairs, replacements, and honest,
-     photo-documented inspections across Lake County, IL and southeast Wisconsin.</p>
+  <p class="sub">Illinois licensed roofing contractor — Lake County, IL and southeast Wisconsin.</p>
   <div class="cta">
     <a class="btn btn-red" href="tel:+16574542005">Call (657) 454-2005</a>
-    <a class="btn btn-line" href="sms:+16574542005">Text a photo of the problem</a>
+    <a class="btn btn-line" href="sms:+16574542005">Text a photo</a>
   </div>
   <div class="cred-strip">Licensed &middot; Insured &middot; IL Roofing Lic. 104.020106</div>
 </header>
@@ -175,25 +174,25 @@
     <div class="grid">
       <div class="card">
         <h3>Free Estimates</h3>
-        <p>Know what you need — or can text me a photo? I'll price it for you at no charge,
-           a quick ballpark to get you moving. Photo quotes are confirmed once I'm on site.</p>
+        <p>Know what you need, or can text a photo? I'll price it free — a quick ballpark,
+           confirmed once I'm on site.</p>
       </div>
       <div class="card">
         <h3>$250 Roof Inspection</h3>
-        <p>Not sure what's actually going on up there? I get on the roof and into the attic,
-           find the real problem, and hand you a full written report. If you move forward with
-           a full roof replacement, the $250 comes right back off the job.</p>
+        <p>Not sure what's wrong? I get on the roof and into the attic, find the real problem,
+           and hand you a written report — credited back if you move forward with a full
+           roof replacement.</p>
       </div>
       <div class="card">
         <h3>Evenings &amp; Weekends</h3>
-        <p>Appointments around your schedule — including the evenings and weekends most
-           contractors won't work. The easiest way to start is a photo: text one over and
-           I'll come back with a quick ballpark.</p>
+        <p>Appointments around your schedule, including the hours most contractors won't
+           work. Request a time that suits you.</p>
       </div>
     </div>
-    <div class="cta" style="margin-top:1.8rem">
-      <a class="btn btn-red" href="sms:+16574542005">Text a photo for a fast quote</a>
+    <div class="cta" style="margin-top:1.1rem">
+      <a class="btn btn-red" href="sms:+16574542005">Text a photo</a>
       <a class="btn btn-line" href="tel:+16574542005">Call (657) 454-2005</a>
+      <a class="btn btn-line" href="mailto:rimantas@vilkasinc.com?subject=Appointment%20request&amp;body=Name%3A%0D%0AProperty%20address%3A%0D%0ABest%20phone%3A%0D%0AWhat%20is%20going%20on%3A%0D%0APreferred%20days%2Ftimes%3A%0D%0A">Request an appointment</a>
     </div>
   </section>
 
@@ -218,10 +217,10 @@
   <section id="why">
     <h2>Why <span>Vilkas</span></h2>
     <ul class="why">
-      <li><b>The owner is on your roof.</b> No sales rep, no hand-off — the person who inspects, quotes, and answers the phone is the same person.</li>
-      <li><b>Licensed unlimited in Illinois</b> (Lic. 104.020106), insured with $1M general liability and workers' compensation.</li>
-      <li><b>Reports, not pitches.</b> You get photographs and findings in writing. What's broken, what's code, what can wait — separated honestly.</li>
-      <li><b>Built to the manufacturer's book.</b> Most roof failures we inspect trace to skipped steps at walls, chimneys, and vents. We don't skip them.</li>
+      <li><b>The owner is on your roof.</b> One person inspects, quotes, and answers the phone.</li>
+      <li><b>Licensed unlimited in Illinois</b> (Lic. 104.020106) — $1M liability, workers' comp.</li>
+      <li><b>Reports, not pitches.</b> Photos and findings in writing: what's broken, what's code, what can wait.</li>
+      <li><b>Built to the manufacturer's book.</b> Most failures trace to skipped steps at walls, chimneys, vents. We don't skip them.</li>
     </ul>
   </section>
 
@@ -289,9 +288,8 @@
       <span>Beach Park</span><span>Waukegan</span><span>Gurnee</span><span>Libertyville</span>
       <span>Lake Zurich</span><span>Kenosha</span><span>Pleasant Prairie</span>
     </div>
-    <p class="areas-note">Don't see your town? We regularly work beyond this list —
-       just ask. Jobs farther out may carry a small trip charge based on distance,
-       quoted up front before any work is scheduled.</p>
+    <p class="areas-note">Don't see your town? Just ask — we work beyond this list. Farther
+       jobs may carry a small trip charge, quoted up front.</p>
   </section>
 </main>
 
