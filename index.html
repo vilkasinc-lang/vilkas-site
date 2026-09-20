@@ -52,9 +52,9 @@
   h1, h2 { font-family: "Playfair Display", "Bodoni MT", Georgia, serif; font-weight: 600; text-wrap: balance; }
 
   /* hero */
-  .hero { min-height: 92svh; display: flex; flex-direction: column; align-items: center;
-          justify-content: center; text-align: center; padding: 3rem 1.4rem 2.5rem; position: relative; }
-  .hero svg { width: min(46vw, 15rem); height: auto; margin-bottom: 1.6rem; }
+  .hero { min-height: 62svh; display: flex; flex-direction: column; align-items: center;
+          justify-content: center; text-align: center; padding: 2.2rem 1.4rem 1.8rem; position: relative; }
+  .hero svg { width: min(30vw, 8.5rem); height: auto; margin-bottom: 1rem; }
   .hero h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); letter-spacing: .06em; }
   .tag { color: var(--red); letter-spacing: clamp(.12em, 1.2vw, .3em); text-transform: uppercase;
          font-size: .82rem; font-weight: 600; margin: .8rem 0 .4rem; }
@@ -65,7 +65,7 @@
   .btn-red { background: var(--red); color: #fff; }
   .btn-line { border: 1.5px solid var(--line); color: var(--ink); }
   .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
-  .cred-strip { position: absolute; bottom: 1.2rem; left: 1rem; right: 1rem; text-align: center;
+  .cred-strip { margin-top: 1.3rem; text-align: center;
                 color: var(--dim); font-size: .72rem; letter-spacing: clamp(.06em, .8vw, .14em);
                 text-transform: uppercase; }
 
@@ -160,9 +160,8 @@
   </svg>
   <h1>Vilkas Inc</h1>
   <div class="tag">Roofing &middot; Exteriors &middot; Inspections</div>
-  <p class="sub">Illinois licensed roofing contractor. Straight answers, photo-documented
-     inspections, and roofs built the way the manual says — serving Lake County, Illinois
-     and southeast Wisconsin.</p>
+  <p class="sub">Illinois licensed roofing contractor — repairs, replacements, and honest,
+     photo-documented inspections across Lake County, IL and southeast Wisconsin.</p>
   <div class="cta">
     <a class="btn btn-red" href="tel:+16574542005">Call (657) 454-2005</a>
     <a class="btn btn-line" href="sms:+16574542005">Text a photo of the problem</a>
@@ -171,30 +170,6 @@
 </header>
 
 <main class="wrap">
-  <section id="services">
-    <h2>What we <span>do</span></h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Roof Replacement</h3>
-        <p>Full tear-off and re-roof — shingle systems installed complete: ice &amp; water
-           membrane, flashing, ventilation. No shortcuts at the walls, no skipped steps
-           you'll find out about in four years.</p>
-      </div>
-      <div class="card">
-        <h3>Repairs &amp; Leak Diagnosis</h3>
-        <p>Chimney and sidewall flashing, storm damage, active leaks. We find the actual
-           water path — not just the stain — and price the fix honestly against the cost
-           of replacement.</p>
-      </div>
-      <div class="card">
-        <h3>Inspections &amp; Reports</h3>
-        <p>Photo-documented roof and attic inspections with a written report you can hand
-           to any contractor, insurer, or buyer. Every claim classified: code violation,
-           missing best practice, or observation.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="estimates">
     <h2>Estimates &amp; <span>inspections</span></h2>
     <div class="grid">
@@ -219,6 +194,24 @@
     <div class="cta" style="margin-top:1.8rem">
       <a class="btn btn-red" href="sms:+16574542005">Text a photo for a fast quote</a>
       <a class="btn btn-line" href="tel:+16574542005">Call (657) 454-2005</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>What we <span>do</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Roof Replacement</h3>
+        <p>Full tear-off and re-roof — shingle systems installed complete: ice &amp; water
+           membrane, flashing, ventilation. No shortcuts at the walls, no skipped steps
+           you'll find out about in four years.</p>
+      </div>
+      <div class="card">
+        <h3>Repairs &amp; Leak Diagnosis</h3>
+        <p>Chimney and sidewall flashing, storm damage, active leaks. We find the actual
+           water path — not just the stain — and price the fix honestly against the cost
+           of replacement.</p>
+      </div>
     </div>
   </section>
 
