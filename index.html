@@ -78,6 +78,8 @@
   .card h3 { font-size: .97rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4rem; }
   .card h3::before { content: ""; display: block; width: 1.7rem; height: 2px; background: var(--red); margin-bottom: .55rem; }
   .card p { color: var(--dim); font-size: .94rem; }
+  .sample-link { display: inline-block; margin-top: .65rem; color: var(--ink); font-size: .9rem; font-weight: 600; text-underline-offset: .2em; }
+  .sample-link:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
   .why li { list-style: none; padding-left: 1.4rem; position: relative; margin-bottom: .5rem; color: var(--dim); }
   .why li::before { content: "—"; color: var(--red); position: absolute; left: 0; }
@@ -100,19 +102,22 @@
   }
   .workset h3 { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem; margin: 1.3rem 0 .5rem; }
   .workview { display: flex; align-items: center; gap: .4rem; }
-  .workframe { flex: 1; min-width: 0; overflow: hidden; border-radius: 10px; background: #0a0a0a; cursor: zoom-in; }
+  .workframe { flex: 1; min-width: 0; overflow: hidden; border: 0; padding: 0; border-radius: 10px; background: #0a0a0a; cursor: zoom-in; }
   .workframe.zoomed { cursor: zoom-out; }
   .workfeature { display: block; width: 100%; max-height: 62vh; object-fit: contain; transition: transform .12s ease-out; transform-origin: 50% 50%; }
   .workframe.zoomed .workfeature { transform: scale(2.4); }
   .worknav { flex: 0 0 auto; background: none; border: 1px solid #333; color: #e33; font-size: 1.6rem; line-height: 1; padding: .55rem .7rem; border-radius: 8px; cursor: pointer; }
   .worknav:hover { border-color: #e33; }
+  .worknav:focus-visible, .workframe:focus-visible, .workthumb:focus-visible { outline: 2px solid #e33; outline-offset: 3px; }
   .workthumbs { display: flex; gap: .45rem; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: .5rem 0 .3rem; scrollbar-width: thin; scrollbar-color: #e33 #1a1a1a; }
   .workthumbs::-webkit-scrollbar { height: 6px; }
   .workthumbs::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 3px; }
   .workthumbs::-webkit-scrollbar-thumb { background: #e33; border-radius: 3px; }
-  .workthumbs img { height: 64px; width: 88px; object-fit: cover; flex: 0 0 auto; border-radius: 6px; cursor: pointer; opacity: .55; border: 2px solid transparent; }
-  .workthumbs img.on { opacity: 1; border-color: #e33; }
-  @media (max-width: 560px) { .worknav { display: none; } .workfeature { max-height: 48vh; } }
+  .workthumb { display: block; flex: 0 0 auto; border: 2px solid transparent; padding: 0; border-radius: 6px; background: none; cursor: pointer; opacity: .55; }
+  .workthumb img { display: block; height: 64px; width: 88px; object-fit: cover; border-radius: 4px; }
+  .workthumb.on { opacity: 1; border-color: #e33; }
+  .workcount { color: var(--dim); font-size: .82rem; margin-top: .25rem; text-align: center; }
+  @media (max-width: 560px) { .worknav { padding: .55rem .6rem; } .workfeature { max-height: 48vh; } }
   .areas-note { margin-top: .8rem; font-size: .92rem; color: #bbb; max-width: 46rem; }
 </style>
 </head>
@@ -182,6 +187,7 @@
         <p>Not sure what's wrong? I get on the roof and into the attic, find the real problem,
            and hand you a written report — credited back if you move forward with a full
            roof replacement.</p>
+        <a class="sample-link" href="docs/vilkas-sample-roof-inspection-report.pdf">See a sample report (PDF)</a>
       </div>
       <div class="card">
         <h3>Evenings &amp; Weekends</h3>
@@ -192,7 +198,7 @@
     <div class="cta" style="margin-top:1.1rem">
       <a class="btn btn-red" href="sms:+16574542005">Text a photo</a>
       <a class="btn btn-line" href="tel:+16574542005">Call (657) 454-2005</a>
-      <a class="btn btn-line" href="mailto:rimantas@vilkasinc.com?subject=Appointment%20request&amp;body=Name%3A%0D%0AProperty%20address%3A%0D%0ABest%20phone%3A%0D%0AWhat%20is%20going%20on%3A%0D%0APreferred%20days%2Ftimes%3A%0D%0A">Request an appointment</a>
+      <a class="btn btn-line" href="mailto:rimantas@vilkasinc.com?subject=Website%20appointment%20request&amp;body=Source%3A%20Website%20appointment%20request%0D%0AService%3A%20Free%20estimate%20%2F%20%24250%20inspection%20%2F%20Unsure%0D%0AName%3A%0D%0AProperty%20address%3A%0D%0ABest%20phone%3A%0D%0AWhat%20is%20going%20on%3A%0D%0APreferred%20days%2Ftimes%3A%0D%0A">Request an appointment</a>
     </div>
   </section>
 
@@ -231,52 +237,55 @@
         <h3>Chimney Reflash — Crown, Cap &amp; Flashing</h3>
         <div class="workview">
           <button class="worknav" type="button" aria-label="Previous photo" onclick="vkStep(this,-1)">&#8249;</button>
-          <div class="workframe" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/chimney-reflash-01.jpg" alt="Chimney reflash — crown, cap and flashing"></div>
+          <button class="workframe" type="button" aria-label="Zoom chimney reflash photo" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/optimized/chimney-reflash-01-1280.webp" alt="Chimney reflash — crown, cap and flashing" width="1280" height="960" loading="lazy" decoding="async"></button>
           <button class="worknav" type="button" aria-label="Next photo" onclick="vkStep(this,1)">&#8250;</button>
         </div>
         <div class="workthumbs">
-          <img src="work/chimney-reflash-01.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="on" onclick="vkShow(this,0)">
-          <img src="work/chimney-reflash-02.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,1)">
-          <img src="work/chimney-reflash-03.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,2)">
-          <img src="work/chimney-reflash-04.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,3)">
-          <img src="work/chimney-reflash-05.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,4)">
-          <img src="work/chimney-reflash-06.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,5)">
-          <img src="work/chimney-reflash-07.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,6)">
-          <img src="work/chimney-reflash-08.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,7)">
-          <img src="work/chimney-reflash-09.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,8)">
-          <img src="work/chimney-reflash-10.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,9)">
-          <img src="work/chimney-reflash-11.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,10)">
-          <img src="work/chimney-reflash-12.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,11)">
-          <img src="work/chimney-reflash-13.jpg" alt="Chimney reflash — crown, cap and flashing" loading="lazy" class="" onclick="vkShow(this,12)">
+          <button class="workthumb on" type="button" aria-label="Show chimney reflash photo 1 of 13" aria-pressed="true" data-full="work/optimized/chimney-reflash-01-1280.webp" onclick="vkShow(this,0)"><img src="work/optimized/chimney-reflash-01-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 2 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-02-1280.webp" onclick="vkShow(this,1)"><img src="work/optimized/chimney-reflash-02-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 3 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-03-1280.webp" onclick="vkShow(this,2)"><img src="work/optimized/chimney-reflash-03-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 4 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-04-1280.webp" onclick="vkShow(this,3)"><img src="work/optimized/chimney-reflash-04-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 5 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-05-1280.webp" onclick="vkShow(this,4)"><img src="work/optimized/chimney-reflash-05-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 6 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-06-1280.webp" onclick="vkShow(this,5)"><img src="work/optimized/chimney-reflash-06-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 7 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-07-1280.webp" onclick="vkShow(this,6)"><img src="work/optimized/chimney-reflash-07-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 8 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-08-1280.webp" onclick="vkShow(this,7)"><img src="work/optimized/chimney-reflash-08-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 9 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-09-1280.webp" onclick="vkShow(this,8)"><img src="work/optimized/chimney-reflash-09-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 10 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-10-1280.webp" onclick="vkShow(this,9)"><img src="work/optimized/chimney-reflash-10-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 11 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-11-1280.webp" onclick="vkShow(this,10)"><img src="work/optimized/chimney-reflash-11-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 12 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-12-1280.webp" onclick="vkShow(this,11)"><img src="work/optimized/chimney-reflash-12-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show chimney reflash photo 13 of 13" aria-pressed="false" data-full="work/optimized/chimney-reflash-13-1280.webp" onclick="vkShow(this,12)"><img src="work/optimized/chimney-reflash-13-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
         </div>
+        <p class="workcount" aria-live="polite">Photo 1 of 13</p>
       </div>
             <div class="workset" data-count="6">
         <h3>Wisconsin Fascia Wrap Repair</h3>
         <div class="workview">
           <button class="worknav" type="button" aria-label="Previous photo" onclick="vkStep(this,-1)">&#8249;</button>
-          <div class="workframe" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair"></div>
+          <button class="workframe" type="button" aria-label="Zoom Wisconsin fascia repair photo" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/optimized/8463d752-dc9c-4142-9c65-f6345aed236f-1280.webp" alt="Wisconsin Fascia Wrap Repair" width="675" height="900" loading="lazy" decoding="async"></button>
           <button class="worknav" type="button" aria-label="Next photo" onclick="vkStep(this,1)">&#8250;</button>
         </div>
         <div class="workthumbs">
-          <img src="work/8463d752-dc9c-4142-9c65-f6345aed236f.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="on" onclick="vkShow(this,0)">
-          <img src="work/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,1)">
-          <img src="work/6f18a542-d785-491c-a27b-6e42f958940d.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,2)">
-          <img src="work/97a1508c-75a1-47bb-bfe3-232c0399e53a.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,3)">
-          <img src="work/38747940-94eb-4810-aaa7-a7cda0aff774.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,4)">
-          <img src="work/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9.jpg" alt="Wisconsin Fascia Wrap Repair" loading="lazy" class="" onclick="vkShow(this,5)">
+          <button class="workthumb on" type="button" aria-label="Show fascia repair photo 1 of 6" aria-pressed="true" data-full="work/optimized/8463d752-dc9c-4142-9c65-f6345aed236f-1280.webp" onclick="vkShow(this,0)"><img src="work/optimized/8463d752-dc9c-4142-9c65-f6345aed236f-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show fascia repair photo 2 of 6" aria-pressed="false" data-full="work/optimized/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c-1280.webp" onclick="vkShow(this,1)"><img src="work/optimized/3bc7b95e-c7e7-4517-9f20-8f7e3288f55c-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show fascia repair photo 3 of 6" aria-pressed="false" data-full="work/optimized/6f18a542-d785-491c-a27b-6e42f958940d-1280.webp" onclick="vkShow(this,2)"><img src="work/optimized/6f18a542-d785-491c-a27b-6e42f958940d-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show fascia repair photo 4 of 6" aria-pressed="false" data-full="work/optimized/97a1508c-75a1-47bb-bfe3-232c0399e53a-1280.webp" onclick="vkShow(this,3)"><img src="work/optimized/97a1508c-75a1-47bb-bfe3-232c0399e53a-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show fascia repair photo 5 of 6" aria-pressed="false" data-full="work/optimized/38747940-94eb-4810-aaa7-a7cda0aff774-1280.webp" onclick="vkShow(this,4)"><img src="work/optimized/38747940-94eb-4810-aaa7-a7cda0aff774-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show fascia repair photo 6 of 6" aria-pressed="false" data-full="work/optimized/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9-1280.webp" onclick="vkShow(this,5)"><img src="work/optimized/9b5f0aca-1105-4b38-8ad0-b8ca4b0e89b9-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
         </div>
+        <p class="workcount" aria-live="polite">Photo 1 of 6</p>
       </div>
             <div class="workset" data-count="2">
         <h3>Gutter Cleaning and Additional Downspout Installation</h3>
         <div class="workview">
           <button class="worknav" type="button" aria-label="Previous photo" onclick="vkStep(this,-1)">&#8249;</button>
-          <div class="workframe" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation"></div>
+          <button class="workframe" type="button" aria-label="Zoom gutter and downspout photo" onclick="vkZoom(event,this)" onpointermove="vkPan(event,this)"><img class="workfeature" src="work/optimized/60349e26-8138-4b03-b6b9-d5467102172e-1280.webp" alt="Gutter Cleaning and Additional Downspout Installation" width="900" height="675" loading="lazy" decoding="async"></button>
           <button class="worknav" type="button" aria-label="Next photo" onclick="vkStep(this,1)">&#8250;</button>
         </div>
         <div class="workthumbs">
-          <img src="work/60349e26-8138-4b03-b6b9-d5467102172e.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy" class="on" onclick="vkShow(this,0)">
-          <img src="work/014460fa-bbc5-4451-b9bf-f9c920765f93.jpg" alt="Gutter Cleaning and Additional Downspout Installation" loading="lazy" class="" onclick="vkShow(this,1)">
+          <button class="workthumb on" type="button" aria-label="Show gutter and downspout photo 1 of 2" aria-pressed="true" data-full="work/optimized/60349e26-8138-4b03-b6b9-d5467102172e-1280.webp" onclick="vkShow(this,0)"><img src="work/optimized/60349e26-8138-4b03-b6b9-d5467102172e-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
+          <button class="workthumb" type="button" aria-label="Show gutter and downspout photo 2 of 2" aria-pressed="false" data-full="work/optimized/014460fa-bbc5-4451-b9bf-f9c920765f93-1280.webp" onclick="vkShow(this,1)"><img src="work/optimized/014460fa-bbc5-4451-b9bf-f9c920765f93-thumb.webp" alt="" width="220" height="160" loading="lazy"></button>
         </div>
+        <p class="workcount" aria-live="polite">Photo 1 of 2</p>
       </div>
   </section>
 
@@ -303,14 +312,19 @@
 
 <script>
 function vkSet(set, i) {
-  var thumbs = set.querySelectorAll('.workthumbs img');
+  var thumbs = set.querySelectorAll('.workthumb');
   var n = thumbs.length;
   i = ((i % n) + n) % n;
   var f = set.querySelector('.workfeature');
-  f.src = thumbs[i].src;
-  f.alt = thumbs[i].alt;
-  thumbs.forEach(function (t, k) { t.classList.toggle('on', k === i); });
+  f.src = thumbs[i].dataset.full;
+  thumbs.forEach(function (t, k) {
+    var selected = k === i;
+    t.classList.toggle('on', selected);
+    t.setAttribute('aria-pressed', selected ? 'true' : 'false');
+  });
+  thumbs[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
   set.dataset.index = i;
+  set.querySelector('.workcount').textContent = 'Photo ' + (i + 1) + ' of ' + n;
   var frame = set.querySelector('.workframe');
   if (frame) frame.classList.remove('zoomed');
 }
